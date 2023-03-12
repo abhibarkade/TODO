@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:id="@+id/txt_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"/>
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/txt_Date"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sun 12 Mar 9:56AM"/>
+
+    <TextView
+        android:layout_below="@id/txt_Title"
+        android:id="@+id/txt_Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey there, how to doing ? This is the demo description for the todo ..."/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
