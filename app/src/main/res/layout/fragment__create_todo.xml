@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.Fragment_CreateTodo">
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <EditText
+            android:id="@+id/ed_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@{title}" />
+
+        <EditText
+            android:id="@+id/ed_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Description" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Category" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal"
+                app:chipIcon="@drawable/ic_person"
+                app:chipIconSize="20dp" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                app:chipIcon="@drawable/ic_home"
+                app:chipIconSize="20dp" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Work"
+                app:chipIcon="@drawable/ic_work"
+                app:chipIconSize="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Priority" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Casual"
+                app:chipIconSize="20dp" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                app:chipIconSize="20dp" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urgent"
+                app:chipIconSize="16dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Priority" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_DueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-- Pick Due Date --"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_PickDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PICK" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
