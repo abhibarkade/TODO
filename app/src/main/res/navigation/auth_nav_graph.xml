@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/fragment_SignUP">
+
+    <fragment
+        android:id="@+id/fragment_SignIN"
+        android:name="com.abhibarkade.todo.auth.screens.Fragment_SignIN"
+        android:label="fragment__sign_i_n"
+        tools:layout="@layout/fragment__sign_i_n" />
+    <fragment
+        android:id="@+id/fragment_SignUP"
+        android:name="com.abhibarkade.todo.auth.screens.Fragment_SignUP"
+        android:label="fragment__sign_u_p"
+        tools:layout="@layout/fragment__sign_u_p" >
+        <action
+            android:id="@+id/action_fragment_SignUP_to_fragment_SignIN"
+            app:destination="@id/fragment_SignIN" />
+    </fragment>
+</navigation>
