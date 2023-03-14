@@ -6,6 +6,7 @@ import com.abhibarkade.todo.R;
 import com.abhibarkade.todo.pojo.POJO_User;
 import com.abhibarkade.todo.utils.dialogs.MessageDialog;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DB {

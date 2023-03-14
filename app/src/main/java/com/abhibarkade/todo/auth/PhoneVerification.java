@@ -45,7 +45,6 @@ public class PhoneVerification extends AppCompatActivity {
     boolean isTimerRunning = false;
     boolean isResendOTP;
     POJO_User user;
-    SmsRetrieverClient smsRetrieverClient;
     ReadOTP smsBroadcastReceiver;
 
     @Override
@@ -53,7 +52,6 @@ public class PhoneVerification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPhoneVerificationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
 
         isResendOTP = false;
 
@@ -166,7 +164,6 @@ public class PhoneVerification extends AppCompatActivity {
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        Toast.makeText(this, "HIT", Toast.LENGTH_SHORT).show();
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (dialog.isShowing())
@@ -214,8 +211,6 @@ public class PhoneVerification extends AppCompatActivity {
 
     private void startSmsUserConsent() {
         SmsRetrieverClient client = SmsRetriever.getClient(this);
-        //We can add sender phone number or leave it blank
-        // I'm adding null here
         client.startSmsUserConsent(null).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
