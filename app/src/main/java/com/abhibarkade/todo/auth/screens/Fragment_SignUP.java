@@ -1,5 +1,6 @@
 package com.abhibarkade.todo.auth.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.abhibarkade.todo.R;
-import com.abhibarkade.todo.databinding.FragmentSignINBinding;
+import com.abhibarkade.todo.auth.PhoneVerification;
 import com.abhibarkade.todo.databinding.FragmentSignUPBinding;
+import com.abhibarkade.todo.pojo.POJO_User;
 
 public class Fragment_SignUP extends Fragment {
 
@@ -33,7 +34,24 @@ public class Fragment_SignUP extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.txtSignUp.setOnClickListener(view1 -> {
-            Toast.makeText(getActivity(), "HIT", Toast.LENGTH_SHORT).show();
+
         });
+
+        binding.signup.setOnClickListener(v -> addUser());
+    }
+
+    void addUser() {
+        POJO_User user = new POJO_User(
+                binding.username.getText().toString().trim(),
+                binding.fullname.getText().toString().trim(),
+                ""
+        );
+
+        Intent intent = new Intent(getActivity(), PhoneVerification.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", user);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 }
