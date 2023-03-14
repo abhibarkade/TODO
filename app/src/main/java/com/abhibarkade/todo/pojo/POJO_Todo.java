@@ -1,8 +1,8 @@
 package com.abhibarkade.todo.pojo;
 
-import com.abhibarkade.todo.utils.Category;
-import com.abhibarkade.todo.utils.Priority;
-import com.abhibarkade.todo.utils.Status;
+import com.abhibarkade.todo.utils.enums.Category;
+import com.abhibarkade.todo.utils.enums.Priority;
+import com.abhibarkade.todo.utils.enums.Status;
 
 public class POJO_Todo {
     String id, title, description, userId, dueDate;

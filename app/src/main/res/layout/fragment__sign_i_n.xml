@@ -29,9 +29,10 @@
             android:layout_marginTop="36dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email or Phone" />
+                android:hint="Username" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,6 +46,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/password"
                 android:hint="Password" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -57,6 +59,7 @@
             android:text="Forgot Password?" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

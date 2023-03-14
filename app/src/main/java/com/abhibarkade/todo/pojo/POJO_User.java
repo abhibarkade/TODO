@@ -4,20 +4,22 @@ import java.io.Serializable;
 import java.util.UUID;
 
 public class POJO_User implements Serializable {
-    public String id, userName, fullName, phone;
+    public String id, username, fullName, phone, password;
 
     public POJO_User() {
-        this.id = "USER:"+UUID.randomUUID();
-        userName = "";
+        this.id = "USER:" + UUID.randomUUID();
+        username = "";
         fullName = "";
         phone = "";
+        password = "";
     }
 
-    public POJO_User(String userName, String fullName, String phone) {
-        this.id = "USER:"+UUID.randomUUID();
-        this.userName = userName;
+    public POJO_User(String username, String fullName, String password, String phone) {
+        this.id = "USER:" + UUID.randomUUID();
+        this.username = username;
         this.fullName = fullName;
         this.phone = phone;
+        this.password = password;
     }
 
     public String getId() {
@@ -28,12 +30,12 @@ public class POJO_User implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getusername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setusername(String username) {
+        this.username = username;
     }
 
     public String getFullName() {
@@ -52,11 +54,19 @@ public class POJO_User implements Serializable {
         this.phone = phone;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "POJO_User{" +
                 "id='" + id + '\'' +
-                ", userName='" + userName + '\'' +
+                ", username='" + username + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
