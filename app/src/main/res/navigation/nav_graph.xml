@@ -9,6 +9,42 @@
         android:id="@+id/fragment_Home"
         android:name="com.abhibarkade.todo.screens.Fragment_Home"
         android:label="fragment__home"
-        tools:layout="@layout/fragment__home" />
+        tools:layout="@layout/fragment__home" >
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_Profile"
+            app:destination="@id/fragment_Profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_History"
+        android:name="com.abhibarkade.todo.screens.Fragment_History"
+        android:label="fragment__history"
+        tools:layout="@layout/fragment__history" >
+        <action
+            android:id="@+id/action_fragment_History_to_fragment_Notification"
+            app:destination="@id/fragment_Notification" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Notification"
+        android:name="com.abhibarkade.todo.screens.Fragment_Notification"
+        android:label="fragment__notification"
+        tools:layout="@layout/fragment__notification" >
+        <action
+            android:id="@+id/action_fragment_Notification_to_fragment_Home"
+            app:destination="@id/fragment_Home" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Profile"
+        android:name="com.abhibarkade.todo.screens.Fragment_Profile"
+        android:label="fragment__profile"
+        tools:layout="@layout/fragment__profile" >
+        <action
+            android:id="@+id/action_fragment_Profile_to_fragment_Setting"
+            app:destination="@id/fragment_Setting" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Setting"
+        android:name="com.abhibarkade.todo.screens.Fragment_Setting"
+        android:label="fragment__setting"
+        tools:layout="@layout/fragment__setting" />
 
 </navigation>

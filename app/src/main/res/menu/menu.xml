@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_History"
+        android:icon="@drawable/ic_history"
+        android:title="History" />
+
+    <item
+        android:id="@+id/fragment_Notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notification" />
+
+    <item
+        android:checked="true"
+        android:id="@+id/fragment_Home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/fragment_Profile"
+        android:icon="@drawable/ic_person"
+        android:title="Profile" />
+    <item
+        android:id="@+id/fragment_Setting"
+        android:icon="@drawable/ic_setting"
+        android:title="Setting" />
+
+
+</menu>
