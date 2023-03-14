@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.abhibarkade.todo.auth.PhoneVerification;
+import com.abhibarkade.todo.auth.helper.DB;
 import com.abhibarkade.todo.databinding.FragmentSignUPBinding;
 import com.abhibarkade.todo.pojo.POJO_User;
 
@@ -34,7 +34,6 @@ public class Fragment_SignUP extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.txtSignUp.setOnClickListener(view1 -> {
-
         });
 
         binding.signup.setOnClickListener(v -> addUser());
@@ -44,6 +43,7 @@ public class Fragment_SignUP extends Fragment {
         POJO_User user = new POJO_User(
                 binding.username.getText().toString().trim(),
                 binding.fullname.getText().toString().trim(),
+                binding.password.getText().toString().trim(),
                 ""
         );
 
