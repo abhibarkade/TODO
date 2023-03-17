@@ -6,4 +6,7 @@
     <string name="resendOTP">Resend OTP</string>
     <string name="resendOTPTimer">Resend OTP in %1$d</string>
 
+    <dimen name="item_offset">96dp</dimen>
+    <dimen name="item_size">100dp</dimen>
+
 </resources>

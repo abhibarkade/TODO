@@ -4,24 +4,31 @@ import com.abhibarkade.todo.utils.enums.Category;
 import com.abhibarkade.todo.utils.enums.Priority;
 import com.abhibarkade.todo.utils.enums.Status;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 public class POJO_Todo {
-    String id, title, description, userId, dueDate;
+    String id, title, description, userId, creationDate, startTime, endTime;
     Priority priority;
     Status status;
     Category category;
 
-    POJO_Todo(){
+    POJO_Todo() {
+        id = "TODO:" + UUID.randomUUID();
         priority = Priority.Undefined;
-        status = Status.Undefined;
+        status = Status.Incomplete;
         category = Category.Undefined;
     }
 
-    public POJO_Todo(String id, String title, String description, String userId, String dueDate, Priority priority, Status status, Category category) {
-        this.id = id;
+    public POJO_Todo(String title, String description, String userId, String creationDate, String startTime, String endTime, Priority priority, Status status, Category category) {
+        id = "TODO:" + UUID.randomUUID();
         this.title = title;
         this.description = description;
         this.userId = userId;
-        this.dueDate = dueDate;
+        this.creationDate = creationDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.priority = priority;
         this.status = status;
         this.category = category;
@@ -59,12 +66,28 @@ public class POJO_Todo {
         this.userId = userId;
     }
 
-    public String getDueDate() {
-        return dueDate;
+    public String getcreationDate() {
+        return creationDate;
     }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
+    public void setcreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public Priority getPriority() {
@@ -89,5 +112,24 @@ public class POJO_Todo {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+
+    //    String title, String description, String userId, String creationDate,
+//    String startTime, String endTime, Priority priority, Status status, Category category
+//
+    public static Map<String, String> toMap(POJO_Todo todo) {
+        Map<String, String> map = new HashMap<>();
+        map.put("id", todo.getId());
+        map.put("title", todo.getTitle());
+        map.put("description", todo.getDescription());
+        map.put("userId", todo.getUserId());
+        map.put("creationDate", todo.getcreationDate());
+        map.put("startTime", todo.getStartTime());
+        map.put("endTime", todo.getEndTime());
+        map.put("priority", "" + todo.getPriority());
+        map.put("status", "" + todo.getStatus());
+        map.put("category", "" + todo.getCategory());
+        return map;
     }
 }

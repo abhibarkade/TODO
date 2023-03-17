@@ -28,33 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setUpNav();
-
-//        NavController navController = Navigation.findNavController(this, R.id.frag);
-//        final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-//        final NavController navController = navHostFragment.getNavController();
-//
-////        NavigationUI.setupWithNavController(binding.menu, navController);
-//
-//        binding.menu.setOnItemSelectedListener(item -> {
-//            switch (item.getItemId()) {
-//                case R.id.fragment_Home:
-//                    navController.navigate(R.id.fragment_Home);
-//                    break;
-//                case R.id.fragment_Profile:
-//                    navController.navigate(R.id.fragment_Profile);
-//                    break;
-//                case R.id.fragment_History:
-//                    navController.navigate(R.id.fragment_History);
-//                    break;
-//                case R.id.fragment_Notification:
-//                    navController.navigate(R.id.fragment_Notification);
-//                    break;
-//                case R.id.fragment_Setting:
-//                    navController.navigate(R.id.fragment_Setting);
-//                    break;
-//            }
-//            return false;
-//        });
     }
 
     private void setUpNav(){
