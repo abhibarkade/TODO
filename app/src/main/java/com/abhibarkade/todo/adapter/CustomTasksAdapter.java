@@ -91,11 +91,14 @@ public class CustomTasksAdapter extends RecyclerView.Adapter<CustomTasksAdapter.
     }
 
     public EntityTask remove(int index) {
-        return list.remove(index);
+        EntityTask task = list.remove(index);
+        notifyItemRemoved(index);
+        return task;
     }
 
-    public void add(EntityTask task) {
-        list.add(task);
+    public void add(int index, EntityTask task) {
+        list.add(index, task);
+        notifyItemInserted(index);
     }
 
 

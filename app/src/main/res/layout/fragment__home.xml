@@ -6,6 +6,10 @@
 
     <data>
 
+        <variable
+            name="viewmodel"
+            type="com.abhibarkade.todo.viewmodel.HomeViewModel" />
+
     </data>
 
     <LinearLayout
@@ -43,7 +47,7 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Hii"
+                android:text="@{viewmodel.today}"
                 android:textSize="16sp" />
 
             <com.google.android.material.chip.Chip
@@ -103,9 +107,10 @@
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_todayTasks"
+                    android:id="@+id/recyclerview_dailyTasks"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </LinearLayout>
 

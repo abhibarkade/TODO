@@ -42,6 +42,9 @@ public class EntityTask {
     @ColumnInfo(name = "category")
     private String category;
 
+    public EntityTask() {
+    }
+
     public EntityTask(String id, String title, String description, String userId, String creationDate, String startTime, String endTime, String priority, String status, String category) {
         this.id = id;
         this.title = title;
