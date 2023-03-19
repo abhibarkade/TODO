@@ -11,7 +11,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.abhibarkade.todo.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 

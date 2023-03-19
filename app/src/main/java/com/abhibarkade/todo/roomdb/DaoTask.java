@@ -1,19 +1,18 @@
 package com.abhibarkade.todo.roomdb;
 
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface DaoTask {
     @Query("select * from EntityTask")
-    List<EntityTask> getTasks();
+    LiveData<List<EntityTask>> getTasks();
 
     @Insert
     void insertTask(EntityTask todo);

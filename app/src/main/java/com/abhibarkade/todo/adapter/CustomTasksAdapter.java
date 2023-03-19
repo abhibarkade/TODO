@@ -18,9 +18,14 @@ public class CustomTasksAdapter extends RecyclerView.Adapter<CustomTasksAdapter.
     List<EntityTask> list;
     Context context;
 
-    public CustomTasksAdapter(Context context, List<EntityTask> list) {
+    public CustomTasksAdapter(List<EntityTask> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void setList(List<EntityTask> list) {
+        this.list = list;
+        notifyDataSetChanged();
     }
 
     @NonNull

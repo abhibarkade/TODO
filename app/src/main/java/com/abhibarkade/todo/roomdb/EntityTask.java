@@ -6,6 +6,9 @@ import androidx.room.PrimaryKey;
 
 import com.abhibarkade.todo.pojo.POJO_Todo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Entity
 public class EntityTask {
 
@@ -159,5 +162,20 @@ public class EntityTask {
                 "" + todo.getStatus(),
                 "" + todo.getCategory()
         );
+    }
+
+    public static Map<String, String> toMap(EntityTask todo) {
+        Map<String, String> map = new HashMap<>();
+        map.put("id", todo.getId());
+        map.put("title", todo.getTitle());
+        map.put("description", todo.getDescription());
+        map.put("userId", todo.getUserId());
+        map.put("creationDate", todo.getCreationDate());
+        map.put("startTime", todo.getStartTime());
+        map.put("endTime", todo.getEndTime());
+        map.put("priority", "" + todo.getPriority());
+        map.put("status", "" + todo.getStatus());
+        map.put("category", "" + todo.getCategory());
+        return map;
     }
 }
