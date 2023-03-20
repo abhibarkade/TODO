@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".auth.PhoneVerification"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".auth.Login"
             android:exported="true">
@@ -33,9 +33,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true">
-
         </activity>
 
     </application>

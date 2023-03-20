@@ -13,12 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.abhibarkade.todo.adapter.CustomDaysAdapter;
 import com.abhibarkade.todo.adapter.CustomTasksAdapter;
 import com.abhibarkade.todo.databinding.CreateTodoTileBinding;
 import com.abhibarkade.todo.databinding.FragmentHomeBinding;
+import com.abhibarkade.todo.pojo.CustomDays;
 import com.abhibarkade.todo.repository.TaskRepository;
 import com.abhibarkade.todo.roomdb.DaoTask;
 import com.abhibarkade.todo.roomdb.DatabaseTodo;
@@ -32,6 +35,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Fragment_Home extends Fragment {
@@ -54,14 +58,13 @@ public class Fragment_Home extends Fragment {
         daoTask = db.daoTask();
         taskRepo = new TaskRepository(getContext());
 
-        firestore.collection("Tasks")
-                .addSnapshotListener((value, error) -> {
-                    Toast.makeText(getActivity(), "Firestore changed", Toast.LENGTH_SHORT).show();
-                    daoTask.truncateTable();
-                    for (EntityTask snap : value.toObjects(EntityTask.class)) {
-                        daoTask.insertTask(snap);
-                    }
-                });
+        firestore.collection("Tasks").addSnapshotListener((value, error) -> {
+            Toast.makeText(getActivity(), "Firestore changed", Toast.LENGTH_SHORT).show();
+            daoTask.truncateTable();
+            for (EntityTask snap : value.toObjects(EntityTask.class)) {
+                daoTask.insertTask(snap);
+            }
+        });
 
         viewmodel = new ViewModelHome(getActivity().getApplication());
         daoTask.getTasks().observe(getViewLifecycleOwner(), entityTasks -> {
@@ -130,17 +133,17 @@ public class Fragment_Home extends Fragment {
 
     @SuppressLint("ClickableViewAccessibility")
     void bindDaysRecyclerView() {
-//        ArrayList<CustomDays> list = new ArrayList<>();
-//        list.add(new CustomDays("Sun", 1));
-//        list.add(new CustomDays("Mon", 2));
-//        list.add(new CustomDays("Tue", 3));
-//        list.add(new CustomDays("Wed", 4));
-//        list.add(new CustomDays("Thu", 5));
-//        list.add(new CustomDays("Fri", 6));
-//        list.add(new CustomDays("Sat", 7));
+        ArrayList<CustomDays> list = new ArrayList<>();
+        list.add(new CustomDays("Sun", 1));
+        list.add(new CustomDays("Mon", 2));
+        list.add(new CustomDays("Tue", 3));
+        list.add(new CustomDays("Wed", 4));
+        list.add(new CustomDays("Thu", 5));
+        list.add(new CustomDays("Fri", 6));
+        list.add(new CustomDays("Sat", 7));
 
-//        binding.recyclerDays.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-//        binding.recyclerDays.setAdapter(new CustomDaysAdapter());
+        binding.recyclerDays.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        binding.recyclerDays.setAdapter(new CustomDaysAdapter(list));
 
         // Tasks
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {

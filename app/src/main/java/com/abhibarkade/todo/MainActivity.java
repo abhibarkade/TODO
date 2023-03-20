@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setUpNav();
     }
 
-    private void setUpNav(){
+    private void setUpNav() {
         navView = binding.menu;
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
-        NavigationUI.setupWithNavController(navView,navController);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 }
 
