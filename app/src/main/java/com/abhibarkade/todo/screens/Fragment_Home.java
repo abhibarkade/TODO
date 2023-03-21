@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,13 +42,11 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Fragment_Home extends Fragment {
-
     FragmentHomeBinding binding;
     ViewModelHome viewmodel;
     TaskRepository taskRepo;
     DatabaseTodo db;
     DaoTask daoTask;
-
     AlarmScheduler alarmScheduler;
 
     public Fragment_Home() {
