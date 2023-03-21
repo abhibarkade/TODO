@@ -12,21 +12,4 @@ public abstract class DatabaseTodo extends RoomDatabase {
     public static final String DATABASE_NAME = "DB_Todo";
 
     public abstract DaoTask daoTask();
-
-    @Override
-    public void clearAllTables() {
-
-    }
-
-    @NonNull
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
-    }
-
-    @NonNull
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration) {
-        return null;
-    }
 }

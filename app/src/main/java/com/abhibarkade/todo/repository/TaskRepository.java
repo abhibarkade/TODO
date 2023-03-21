@@ -36,7 +36,7 @@ public class TaskRepository {
     public void liveFetch() {
         firestore.collection(TASK)
                 .addSnapshotListener((value, error) -> {
-                    Toast.makeText(context, "Firestore changed", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Firestore changed", Toast.LENGTH_SHORT).show();
                     dao.truncateTable();
                     for (EntityTask snap : value.toObjects(EntityTask.class)) {
                         dao.insertTask(snap);

@@ -19,6 +19,9 @@ import androidx.room.Room;
 
 import com.abhibarkade.todo.adapter.CustomDaysAdapter;
 import com.abhibarkade.todo.adapter.CustomTasksAdapter;
+import com.abhibarkade.todo.alarm.AlarmItem;
+import com.abhibarkade.todo.alarm.AlarmScheduler;
+import com.abhibarkade.todo.alarm.AndroidAlarmScheduler;
 import com.abhibarkade.todo.databinding.CreateTodoTileBinding;
 import com.abhibarkade.todo.databinding.FragmentHomeBinding;
 import com.abhibarkade.todo.pojo.CustomDays;
@@ -35,6 +38,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -45,6 +49,8 @@ public class Fragment_Home extends Fragment {
     TaskRepository taskRepo;
     DatabaseTodo db;
     DaoTask daoTask;
+
+    AlarmScheduler alarmScheduler;
 
     public Fragment_Home() {
     }
@@ -57,9 +63,10 @@ public class Fragment_Home extends Fragment {
         db = Room.databaseBuilder(requireContext(), DatabaseTodo.class, DatabaseTodo.DATABASE_NAME).allowMainThreadQueries().build();
         daoTask = db.daoTask();
         taskRepo = new TaskRepository(getContext());
+        alarmScheduler = new AndroidAlarmScheduler(getContext());
 
         firestore.collection("Tasks").addSnapshotListener((value, error) -> {
-            Toast.makeText(getActivity(), "Firestore changed", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "Firestore changed", Toast.LENGTH_SHORT).show();
             daoTask.truncateTable();
             for (EntityTask snap : value.toObjects(EntityTask.class)) {
                 daoTask.insertTask(snap);
@@ -68,7 +75,7 @@ public class Fragment_Home extends Fragment {
 
         viewmodel = new ViewModelHome(getActivity().getApplication());
         daoTask.getTasks().observe(getViewLifecycleOwner(), entityTasks -> {
-            Toast.makeText(getActivity(), "local changed : " + entityTasks.size(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "local changed : " + entityTasks.size(), Toast.LENGTH_SHORT).show();
             binding.recyclerviewDailyTasks.setAdapter(new CustomTasksAdapter(entityTasks));
             binding.recyclerviewDailyTasks.getAdapter().notifyDataSetChanged();
         });
@@ -76,17 +83,19 @@ public class Fragment_Home extends Fragment {
 
         binding.setViewmodel(viewmodel);
 
-        EntityTask entityTask = new EntityTask();
-        entityTask.setTitle("" + UUID.randomUUID());
-        binding.addLocal.setOnClickListener(v -> daoTask.insertTask(new EntityTask()));
-
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.createTaskChip.setOnClickListener(v -> createTodo());
+        binding.createTaskChip.setOnClickListener(v -> {
+            AlarmItem alarmItem = new AlarmItem(
+                    LocalDateTime.now().plusSeconds(1),
+                    "Demo alarm ....."
+            );
+            alarmScheduler.schedule(alarmItem);
+        });
 
         bindDaysRecyclerView();
         bindRefreshLayout();
