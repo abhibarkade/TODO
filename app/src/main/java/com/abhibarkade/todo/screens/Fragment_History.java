@@ -50,7 +50,7 @@ public class Fragment_History extends Fragment {
         list.add(new POJO_Timeline("10:30 AM", tmp));
 
         binding.timelineRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.timelineRecyclerview.setAdapter(new TimelineAdapter(getContext(),list));
+        binding.timelineRecyclerview.setAdapter(new TimelineAdapter(getContext(), list));
     }
 
     private void bindDatePicker() {
